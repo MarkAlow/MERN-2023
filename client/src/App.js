@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <Container maxwidth="lg">
@@ -27,13 +27,13 @@ const App = () => {
           className={classes.image}
           src={memories}
           alt="memories"
-          height="20"
-          width="20"
+          height="40"
         ></img>
       </AppBar>
       <Grow in>
         <Container>
           <Grid
+            className={classes.mainContainer}
             container
             justifyContent="space-between"
             alignItems="stretch"
