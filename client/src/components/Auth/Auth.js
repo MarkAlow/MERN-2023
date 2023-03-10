@@ -15,16 +15,34 @@ import useStyles from "./styles";
 import Input from "./Input";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
+import { signin, signup } from "../../actions/auth";
+
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
 
 const Auth = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const handleSubmit = () => {
-    return 1;
+  const [formData, setFormData] = useState(initialState);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (signedUp) {
+      dispatch(signup(formData, history));
+    } else {
+      dispatch(signin(formData, history));
+    }
+
+    console.log(formData);
   };
 
-  const handleChange = () => {
-    return 1;
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleShowPassword = () => {
