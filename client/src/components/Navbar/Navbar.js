@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
-import useStyles from "./styles";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import memories from "../../images/memories.png";
+import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode";
+import useStyles from "./styles";
+import memories from "../../images/memories.png";
 
 const Navbar = () => {
-  const history = useHistory();
   const classes = useStyles();
-  //   const user = null;
-
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
+  const history = useHistory();
   const location = useLocation();
+  //   const user = null;
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
@@ -33,7 +32,6 @@ const Navbar = () => {
     }
 
     setUser(JSON.parse(localStorage.getItem("profile")));
-    // JWT
   }, [location]);
 
   return (
