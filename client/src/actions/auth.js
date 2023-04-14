@@ -7,7 +7,7 @@ export const signin = (formData, history) => async (dispatch) => {
     const { data } = await api.signIn(formData);
 
     dispatch({ type: AUTH, data });
-    // navigate to the home page
+    // navigate to the home pag
     history.push("/");
   } catch (error) {
     console.log(error);
