@@ -9,7 +9,7 @@ import {
   END_LOADING,
 } from "../constants/actionTypes";
 
-//Action Creators
+//Action Creator
 export const getPosts = (page) => async (dispatch) => {
   try {
     dispatch({ type: START_LOADING });
