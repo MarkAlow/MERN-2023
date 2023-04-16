@@ -54,8 +54,8 @@ const Home = () => {
   };
 
   const handleAdd = (tag) => setTags([...tags, tag]);
-  const handleDelete = (tag) => {
-    setTags(tags.filter((t) => t !== tag));
+  const handleDelete = (tagToDelete) => {
+    setTags(tags.filter((tag) => tag !== tagToDelete));
   };
 
   return (
