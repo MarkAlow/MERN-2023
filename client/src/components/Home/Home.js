@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import {
+  deleteAllPosts,
+  getPosts,
+  getPostsBySearch,
+} from "../../actions/posts";
 import {
   Container,
   Grow,
@@ -45,6 +49,10 @@ const Home = () => {
     } else {
       history.push("/");
     }
+  };
+
+  const deletePosts = () => {
+    dispatch(deleteAllPosts());
   };
 
   const handleKeyPress = (e) => {
@@ -104,7 +112,14 @@ const Home = () => {
                 Search
               </Button>
             </AppBar>
-
+            <Button
+              onClick={deletePosts}
+              className={classes.searchButton}
+              color="secondary"
+              variant="contained"
+            >
+              Delete All
+            </Button>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             {!searchQuery && !tags.length && (
               <Paper elevation={6} className={classes.pagination}>

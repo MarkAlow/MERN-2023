@@ -129,4 +129,18 @@ export const likePost = async (req, res) => {
   res.json(updatedPost);
 };
 
+export const deleteAllPosts = async (req, res) => {
+  // if (!req.userId) return res.json({ message: "Not authenticated" });
+
+  try {
+    await PostMessage.deleteMany();
+
+    res.status(200).json({
+      message: "All posts were deleted",
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export default router;

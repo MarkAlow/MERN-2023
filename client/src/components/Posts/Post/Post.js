@@ -41,7 +41,6 @@ const Post = ({ post, setCurrentId }) => {
         </>
       );
     }
-
     return (
       <>
         <ThumbUpAltOutlined fontSize="small" />

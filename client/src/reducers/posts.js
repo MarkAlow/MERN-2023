@@ -5,6 +5,7 @@ import {
   CREATE,
   UPDATE,
   DELETE,
+  DELETE_ALL,
   LIKE,
   START_LOADING,
   END_LOADING,
@@ -47,6 +48,12 @@ export default (state = { isLoading: true, posts: [] }, action) => {
       return {
         ...state,
         posts: state.posts.filter((post) => post._id !== action.payload),
+      };
+
+    case DELETE_ALL:
+      return {
+        ...state,
+        posts: [],
       };
     default:
       return state;
