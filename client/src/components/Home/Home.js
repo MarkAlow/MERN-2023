@@ -69,6 +69,9 @@ const Home = () => {
           className={classes.gridContainer}
         >
           <Grid item xs={12} md={9} sm={6}>
+            <Posts setCurrentId={setCurrentId} />
+          </Grid>
+          <Grid item xs={12} md={3} sm={6}>
             <AppBar
               className={classes.appBarSearch}
               position="static"
@@ -101,9 +104,7 @@ const Home = () => {
                 Search
               </Button>
             </AppBar>
-            <Posts setCurrentId={setCurrentId} />
-          </Grid>
-          <Grid item xs={12} md={3} sm={6}>
+
             <Form currentId={currentId} setCurrentId={setCurrentId} />
             {!searchQuery && !tags.length && (
               <Paper elevation={6} className={classes.pagination}>
