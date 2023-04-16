@@ -32,7 +32,7 @@ export const getPostsBySearch = async (req, res) => {
 
   // QUERY /posts?page=1 > page = 1
   // PARAMS /posts/123 > id = 123
-  //22
+
   try {
     const title = new RegExp(searchQuery, "i");
     const posts = await PostMessage.find({
